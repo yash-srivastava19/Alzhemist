@@ -15,7 +15,7 @@ In the Barin MRI data, two abnormal structures are obtained - namely plaques and
 
 People with AD tend to develop far more of these abnormal structures and in a predictable pattern - beginning in the areas important for memory and then spreading to other parts of the brain.
 
-[MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center](https://alzheimer.ca/sites/default/files/2021-05/mri-brain-scan-alzheimers-disease.png)
+![MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center](https://alzheimer.ca/sites/default/files/2021-05/mri-brain-scan-alzheimers-disease.png)
 
 _MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center_. The image here shows the difference between a normal brain(left) to one that has AD. As the disease progresses, the shrinkage of the brain continues - increasing the severity of the symptoms.
 
