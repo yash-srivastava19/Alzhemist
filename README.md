@@ -21,6 +21,11 @@ _MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center_
 
 The image here shows the difference between a normal brain(left) to one that has AD. As the disease progresses, the shrinkage of the brain continues - increasing the severity of the symptoms.
 
+Our main aim is to classifies these abnormal structures and use the data to train a location specific model(either CNN or other) to pinpoint the location of the structures. If the model is robust, it can even be used to detect Early Onset AD. Our aim is just that - to correctly identify and classify the MRI data into the classes we defined above. 
+
+
+Note: This is my own Research prjoect and is suseptible  to a lot of mistakes. It can become a thing if it leads to something substantial. 
+
 ### The Making Of : Alzeimist
 Alzemist is something that has been on top of my mind for a long time. Neurodegenrative disorders, or in general the ability of lose control of your mind is one of my biggest fears. While I can't help cure it, I can do something that I am half good at and Alzemist is just that.  
 
