@@ -4,7 +4,7 @@ A Deep Learning Model to see which classifies Brain MRI on the basis of the deme
 ## Overview : Alzhemist
 The Brain MRI data for the project was taken from the Kaggle dataset <__here__>. It can be used to classify MRI into Mildly Demented, Moderate Demented, Non Demented, Very Mild Demented. Since    
 
-### Why Alzeimer's ?
+### Why Alzheimer's ?
 Alzheimer's(AD), according to the exact definition - is a type of dementia that effects memory, thinking and behavior. The general hypothesis regarding AD is that it prevents internal parts of cells from running well. 
 
 In the Barin MRI data, two abnormal structures are obtained - namely plaques and tangles which are the prime suspects in damaging and killing cells. The exact role of these structures is unknown, but there is a correlation between these structures and AD.
@@ -26,7 +26,7 @@ Our main aim is to classifies these abnormal structures and use the data to trai
 
 Note: This is my own Research prjoect and is suseptible  to a lot of mistakes. It can become a "thing" if it leads to something substantial. 
 
-### The Making Of : Alzeimist
+### The Making Of : Alzheimist
 Alzhemist is something that has been on top of my mind for a long time. Neurodegenrative disorders, or in general the ability of lose control of your mind is one of my biggest fears. While I can't help cure it, I can do something that I am half good at and Alzemist is just that.
 
 ### Further Readings
