@@ -44,8 +44,6 @@ class Params:
 
 config = Params()
 
-COUNTER = 15
-
 DataGen = ImageDataGenerator(
     rotation_range = config.rot_range,
     width_shift_range = config.width_shift_range,
@@ -59,9 +57,9 @@ DataGen = ImageDataGenerator(
 
 Debug : print("[INFO]: .......Augmenting the Dataset....")
 
-for k in range(1,7):
+for k in range(1,5):
     Debug : print(f"[INFO]: .......Glob Files for K = {k}....")
-    imagelist = glob('Data/{}_Images/{}*'.format(k,k)) #Arrange all images in a class to a particular folder
+    imagelist = glob('Alz_Dataset/train/{}*'.format(k,k)) #Arrange all images in a class to a particular folder
 
     for eachImage in imagelist:
         Debug : print(f"[INFO]: .......Preprocessing Images in the Data folder for K = {k} ....... (Grayscale, Expanded Dims)")
@@ -72,10 +70,10 @@ for k in range(1,7):
 
         i = 0
         Debug : print(f"[INFO]: .......Saving the Images in the Train Folder -  for K = {k} .......")
-        for batch in DataGen.flow(x,batch_size = 1, save_to_dir = 'Train/{}_Images'.format(k),save_prefix = str(k),save_format = 'jpeg'):
+        for batch in DataGen.flow(x,batch_size = 1, save_to_dir = 'Alz_Dataset/train/{}_ag'.format(k),save_prefix = str(k),save_format = 'jpg'):
             i+=1
-            if i>COUNTER:
+            if i>config.COUNTER:
                 break
-        Debug : print(f"[INFO]: .......From a particular image, {COUNTER} images are augmented in the Train folder for K = {k} ....... ")
+        Debug : print(f"[INFO]: .......From a particular image, {config.COUNTER} images are augmented in the Train folder for K = {k} ....... ")
 
 Debug : print(f"[INFO]: ....... Dataset Augmentation is completed. Now run  'Dataset.py' .........") 

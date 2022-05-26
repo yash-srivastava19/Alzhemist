@@ -6,7 +6,6 @@ import subprocess
 import tensorflow as tf
 import keras_tuner as kt
 from dataclasses import dataclass
-import tensorflow.keras as keras
 
 # Set Environment Variables.
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
@@ -20,6 +19,7 @@ class Hyperparameters:
     BATCH_SIZE = 5
     EPOCHS = 100
     LOGS_DIR = "/tmp/tb/tf_logs/Dice_MNIST/" + time.strftime('%d-%m-%Y_%H-%M-%S') 
+    IMG_SIZE = (50, 50)
 
 config = Hyperparameters()
 
@@ -28,16 +28,8 @@ print("[INFO]: .......... Preprocessing Datasets ..........")
 
 print("[INFO]: .......... Loading Test and Train Datasets ..........")
 
-xTrain,yTrain = numpy.load('TrainDiceImages.npy'), numpy.load('TrainDiceLabels.npy')
-xTest,yTest = numpy.load('TestDiceImages.npy'), numpy.load('TestDiceLabels.npy')
-
-print("[INFO]: .......... Expanding Dimensions ..........")
-
-xTrain = numpy.expand_dims(xTrain,-1)
-xTest = numpy.expand_dims(xTest,-1)
-
-yTrain = tf.keras.utils.to_categorical(yTrain,config.CLASSES)
-yTest  = tf.keras.utils.to_categorical(yTest,config.CLASSES)
+train_ds = tf.keras.utils.image_dataset_from_directory(directory = "Alz_Dataset/train", colormode='grayscale', seed=312, label_mode='int', image_size=config.IMG_SIZE)
+test_ds = tf.keras.utils.image_dataset_from_directory(directory = "Alz_Dataset/test", colormode='grayscale', seed=172, label_mode='int', image_size=config.IMG_SIZE)
 
 # It is recommended to double check these hyperparameters by tuning(preferably by using kerastuner)
 
@@ -64,7 +56,7 @@ model = tf.keras.Sequential([
 Debug: model.summary()
 Save : tf.keras.utils.plot_model(model,to_file = 'model.png',show_dtype = False, show_shapes = False, show_layer_names = True)
     
-tBoardCallback = keras.callbacks.TensorBoard(config.LOGS_DIR,histogram_freq = 1, profile_batch = (500,520))
+tBoardCallback = tf.keras.callbacks.TensorBoard(config.LOGS_DIR,histogram_freq = 1, profile_batch = (500,520))
 
 model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
@@ -73,17 +65,18 @@ MLambda = lambda x : model
 print('[INFO]: ........ Hyperparameter tuning - Keras Tuner ...........')
 
 tuner = kt.RandomSearch(MLambda, objective='accuracy', max_trials=5)
-tuner.search(xTrain, yTrain, epochs=5, validation_data=(xTest, yTest))
+tuner.search(train_ds, epochs=5, validation_data=test_ds)
 model = tuner.get_best_models()[0]
 
 print('[INFO]: ........ Hyperparameter tuning Completed ...........')
 
 print("[INFO]: .......... Starting Model Training ..........")
-model.fit(xTrain,yTrain,batch_size=config.BATCH_SIZE ,epochs=config.EPOCHS,callbacks = [tBoardCallback])
+model.fit(train_ds,batch_size=config.BATCH_SIZE ,epochs=config.EPOCHS,callbacks = [tBoardCallback])
 
 # print("[INFO]: .......... Evaluating the Model ..........")
+
 # numpy.seterr(divide = 'ignore')
-# loss,acc = model.evaluate(xTest,yTest)
+loss,acc = model.evaluate(test_ds)
 
 # Debug: print("Loss:{}  Accuracy:{}".format(loss,acc))
 # Save : model.save("DiceMNIST.h5")
