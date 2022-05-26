@@ -17,7 +17,9 @@ People with AD tend to develop far more of these abnormal structures and in a pr
 
 ![MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center](https://alzheimer.ca/sites/default/files/2021-05/mri-brain-scan-alzheimers-disease.png)
 
-_MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center_. The image here shows the difference between a normal brain(left) to one that has AD. As the disease progresses, the shrinkage of the brain continues - increasing the severity of the symptoms.
+_MRI Image courtesy of Sunnybrook and Women's College of Health Sciences Center_. 
+
+The image here shows the difference between a normal brain(left) to one that has AD. As the disease progresses, the shrinkage of the brain continues - increasing the severity of the symptoms.
 
 ### The Making Of : Alzeimist
 Alzemist is something that has been on top of my mind for a long time. Neurodegenrative disorders, or in general the ability of lose control of your mind is one of my biggest fears. While I can't help cure it, I can do something that I am half good at and Alzemist is just that.  
