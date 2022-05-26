@@ -1,36 +1,60 @@
 # !/usr/bin/python
 
+""" Folder Key: 1=MildDemented """
+
 """ Dataset Structure:
-Data:
-.....1_Images
-..........1_001.jpeg
-..........1_002.jpeg
-..........1_003.jpeg
+Alz_Dataset:
+....test
+..........1 (MildDemented)
+.............1_001.jpeg
+.............1_002.jpeg
+..........2 (ModerateDemented)
+.............1_001.jpeg
+.............1_002.jpeg
+..........3 (NonDemented)
+.............1_001.jpeg
+.............1_002.jpeg
+..........4 (VeryMildDemented)
+.............1_001.jpeg
+.............1_002.jpeg
+
 .
 .
 .
-.....6_Images
-..........6_001.jpeg
-..........6_002.jpeg
-..........6_003.jpeg
+
 """
 
 # We want to be sure how much each parameter in Datagen varies. Anything outside the range will directly affect model performance.
 import numpy 
-import tensorflow as tf
 from glob import glob
-from keras.preprocessing.image import ImageDataGenerator,array_to_img,img_to_array,load_img
+from dataclasses import dataclass
+from keras.preprocessing.image import ImageDataGenerator,img_to_array,load_img
+
+@dataclass
+class Params:
+    COUNTER = 15
+    rot_range = 180
+    width_shift_range = 0.4
+    height_shift_range = 0.4
+    shear_range = 0.3
+    zoom_range = 0.3
+    h_flip = True
+    v_flip = True
+
+
+config = Params()
 
 COUNTER = 15
 
 DataGen = ImageDataGenerator(
-    rotation_range = 180,
-    width_shift_range = 0.4,
-    height_shift_range = 0.4,
-    shear_range = 0.3,
-    zoom_range = 0.3,
-    horizontal_flip = True,
-    vertical_flip = True,)
+    rotation_range = config.rot_range,
+    width_shift_range = config.width_shift_range,
+    height_shift_range = config.height_shift_range,
+    shear_range = config.shear_range,
+    zoom_range = config.zoom_range,
+    horizontal_flip = config.h_flip,
+    vertical_flip = config.v_flip,
+    )
 
 
 Debug : print("[INFO]: .......Augmenting the Dataset....")
