@@ -7,7 +7,7 @@ The Brain MRI data for the project was taken from the Kaggle dataset <__here__>.
 ### Why Alzheimer's ?
 Alzheimer's(AD), according to the exact definition - is a type of dementia that effects memory, thinking and behavior. The general hypothesis regarding AD is that it prevents internal parts of cells from running well. 
 
-In the Barin MRI data, two abnormal structures are obtained - namely plaques and tangles which are the prime suspects in damaging and killing cells. The exact role of these structures is unknown, but there is a correlation between these structures and AD.
+In the Brain MRI data, two abnormal structures are obtained - namely plaques and tangles which are the prime suspects in damaging and killing cells. The exact role of these structures is unknown, but there is a correlation between these structures and AD.
 
 - Plaques are deposits of protein fragment called Beta-Amyloid that builds up in the spaces between nerve cells.
 
